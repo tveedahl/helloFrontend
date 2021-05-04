@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  hellofrontend:
+    image: hellofrontend
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    web:
+      image: nginx:latest
+      ports:
+          - "80:80"
+      volumes:
+          - ./nginx.conf:/etc/nginx/conf.d/nginx.conf
+          - ./app:/app
